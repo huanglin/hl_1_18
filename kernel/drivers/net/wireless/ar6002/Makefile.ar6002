@@ -1,0 +1,8 @@
+
+
+obj-$(CONFIG_ATHEROS_AR6002)     += ar6002.o wifi_power.o
+
+$(obj)/ar6002.o: $(obj)/ar6002.uu
+	@echo "UUD     ar6002.uu"
+	@uudecode $(obj)/ar6002.uu -o $(obj)/ar6002.o
+

@@ -1,0 +1,21 @@
+#!/bin/sh
+MAKE_KERNEL=$1
+
+#echo "make kernel?(y,n)";read MAKE_KERNEL
+
+echo    "******************************"
+echo    "*        Make Kernel         *"
+echo    "******************************"
+if [ "$MAKE_KERNEL"x = "n"x ]; then
+	echo "*** skip ***"
+else
+	make -j4
+	echo "*** OKAY ***"
+fi
+
+#mkdir -p rockdev/Image/                        
+./mkkrnlimg arch/arm/boot/Image kernel.img
+#cat kernel.img.tmp System.map > kernel.img 
+#rm -f kernel.img.tmp
+chmod 777 kernel.img
+

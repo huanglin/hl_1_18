@@ -1,0 +1,129 @@
+#
+# NOTE! Don't add files that are generated in specific
+# subdirectories here. Add them in the ".gitignore" file
+# in that subdirectory instead.
+#
+# NOTE! Please use 'git ls-files -i --exclude-standard'
+# command after changing this file, to see if there are
+# any tracked files which get ignored after the change.
+#
+# Normal rules
+#
+.*
+*.o
+*.o.*
+*.a
+*.s
+*.ko
+*.so
+*.so.dbg
+*.mod.c
+*.i
+*.lst
+*.symtypes
+*.order
+*.elf
+*.bin
+*.gz
+*.bz2
+*.lzma
+*.patch
+*.gcno
+Untitled Project.*
+
+#
+# Top-level generic files
+#
+tags
+TAGS
+vmlinux
+kernel.img
+System.map
+Module.markers
+Module.symvers
+!.gitignore
+!.mailmap
+arch/arm/boot/Image
+arch/arm/kernel/asm-offsets.s
+arch/arm/kernel/vmlinux.lds
+arch/arm/lib/lib.a
+#
+# Generated include files
+#
+include/asm
+include/asm-arm/
+include/asm-*/asm-offsets.h
+include/config
+include/linux/autoconf.h
+include/linux/compile.h
+include/linux/version.h
+include/linux/utsrelease.h
+include/linux/bounds.h
+include/generated
+include/asm-arm/mach-types.h
+drivers/video/logo/clut_vga16.c
+drivers/video/logo/logo_blackfin_clut224.c
+drivers/video/logo/logo_blackfin_vga16.c
+drivers/video/logo/logo_charger00_clut224.c
+drivers/video/logo/logo_charger01_clut224.c
+drivers/video/logo/logo_charger02_clut224.c
+drivers/video/logo/logo_charger03_clut224.c
+drivers/video/logo/logo_charger04_clut224.c
+drivers/video/logo/logo_charger05_clut224.c
+drivers/video/logo/logo_charger06_clut224.c
+drivers/video/logo/logo_charger07_clut224.c
+drivers/video/logo/logo_charger08_clut224.c
+drivers/video/logo/logo_dec_clut224.c
+drivers/video/logo/logo_linux_clut224.c
+drivers/video/logo/logo_linux_mono.c
+drivers/video/logo/logo_linux_vga16.c
+drivers/video/logo/logo_m32r_clut224.c
+drivers/video/logo/logo_mac_clut224.c
+drivers/video/logo/logo_parisc_clut224.c
+drivers/video/logo/logo_sgi_clut224.c
+drivers/video/logo/logo_spe_clut224.c
+drivers/video/logo/logo_sun_clut224.c
+drivers/video/logo/logo_superh_clut224.c
+drivers/video/logo/logo_superh_mono.c
+drivers/video/logo/logo_superh_vga16.c
+scripts/basic/docproc
+scripts/basic/fixdep
+scripts/basic/hash
+scripts/conmakehash
+scripts/kallsyms
+scripts/kconfig/conf
+scripts/kconfig/mconf
+scripts/kconfig/lex.zconf.c
+scripts/kconfig/zconf.hash.c
+scripts/kconfig/zconf.tab.c
+scripts/mod/elfconfig.h
+scripts/mod/mk_elfconfig
+scripts/mod/modpost
+scripts/pnmtologo
+usr/.initramfs_data.cpio.d
+usr/gen_init_cpio
+usr/initramfs_data.cpio
+lib/crc32table.h
+lib/gen_crc32table
+lib/lib.a
+vmlinux
+# stgit generated dirs
+patches-*
+
+# quilt's files
+patches
+series
+
+# cscope files
+cscope.*
+ncscope.*
+
+# gnu global files
+GPATH
+GRTAGS
+GSYMS
+GTAGS
+
+*.orig
+*~
+\#*#

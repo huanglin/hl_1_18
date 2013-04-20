@@ -1,0 +1,94 @@
+choice
+	prompt "Epd Panel Select"
+	depends on LCD_RK_EINK
+config V110_EINK_800X600
+	bool "v110 eink_800X600"
+config V110_EINK_1024X768
+	bool "v110 eink_1024X768"
+config V220_EINK_800X600
+	bool "v220 eink_800X600"
+config V220_EINK_480X800
+	bool "v220 eink_480X800"
+config V220_EINK_1024X768
+	bool "v220 eink_1024X768"
+config V110_EINK_1024X600
+	bool "v110 eink_1024X600"
+config V110_1200x825_EINK
+	bool "v110 eink_1200x825"
+endchoice
+
+config EINK_SCREEN_X
+	int "Horizontal eink screen resolution"
+	depends on LCD_RK_EINK
+	default "600"
+	help
+	  resolution, rk eink screen width
+
+config EINK_SCREEN_Y
+	int "Vertical eink screen resolution"
+	depends on LCD_RK_EINK
+	default "800"
+	help
+	  resolution, rk eink screen height
+
+config TCON_DSP
+	bool "Enable DSP to decode e-ink data"
+	depends on LCD_RK_EINK
+	default y
+	---help---
+	dsp decode e-ink data have better effect
+
+choice 
+	prompt "Eink voltage select"
+config EPD_VOLTAGE_CTL
+       bool "epd voltage"
+       depends on LCD_RK_EINK
+config EPD_TI_65185
+			  bool "Ti tps65185"
+       depends on LCD_RK_EINK
+endchoice
+
+choice 
+	prompt "Eink temperature sensor"
+config EPD_LM75
+       bool "LM75"
+       depends on EPD_VOLTAGE_CTL
+config EPD_SN1086
+       bool "SN1086"
+       depends on EPD_VOLTAGE_CTL
+config EPD_NTC
+       bool "NTC"
+       depends on EPD_VOLTAGE_CTL
+endchoice     
+
+
+	
+choice
+	prompt "waveform data source"
+	depends on LCD_RK_EINK
+
+config WAVEFORM_FROM_NAND
+	bool "from nand flash"
+endchoice
+
+
+
+
+
+config WAVEFORM_NAND_ADDR
+	hex "waveform nand flash address"
+	depends on WAVEFORM_FROM_NAND
+	default "0x67800000"
+
+
+config SPI_FLASH_SPEED_MHZ
+	int "SPI flash speed MHz"
+	depends on WAVEFORM_FROM_EEPROM
+	default "20"
+	
+config EPD_IDLE_TIME
+	int "epd idle time"
+	depends on LCD_RK_EINK
+	default "60"
+---help---
+	time = value*50ms

@@ -1,0 +1,93 @@
+#
+# Wireless LAN device configuration
+#
+
+menu "Wireless LAN"
+	depends on !S390
+
+config WLAN_80211
+	bool "Wireless LAN (IEEE 802.11)"
+	depends on NETDEVICES
+	---help---
+	  Say Y if you have any 802.11 wireless LAN hardware.
+
+	  This option does not affect the kernel build, it only
+	  lets you choose drivers.
+
+choice
+	prompt "WiFi device driver support"
+	default WIFI_NONE
+
+	config WIFI_NONE
+	  bool "No WiFi"
+
+	config MV8686
+	  depends on WLAN_80211 && MMC
+	  select WIRELESS_EXT
+	  select IEEE80211
+	  select FW_LOADER
+	  bool "Marvell 8686 SDIO"
+	  ---help---
+	    A library for Marvell 8686 SDIO WLAN devices.
+
+	config MV8686_FAC
+	  depends on WLAN_80211 && MMC
+	  select WIRELESS_EXT
+	  select IEEE80211
+	  select FW_LOADER
+	  bool "Marvell 8686 SDIO (Factory Test Only)"
+	  ---help---
+	    A library for Marvell 8686 SDIO WLAN devices. This
+		driver is for factory test only, such FCC/CE/3C.
+
+	config ATHEROS_AR6002
+	  depends on WLAN_80211 && MMC
+	  select WIRELESS_EXT
+	  select IEEE80211
+	  select FW_LOADER
+	  bool "Atheros AR6002 SDIO"
+	  ---help---
+	    A library for Atheros AR6002 SDIO WLAN devices.
+
+	config NANO_NRX700 
+	  depends on WLAN_80211 && MMC
+	  select WIRELESS_EXT
+	  select IEEE80211
+	  select FW_LOADER
+	  bool "Nanoradio NRX700 SDIO"
+	  ---help---
+	    A library for Nanoradio NRX700 SDIO WLAN devices.
+
+	config BCM4319 
+	  depends on WLAN_80211 && MMC
+	  select WIRELESS_EXT
+	  select IEEE80211
+	  select FW_LOADER
+	  bool "Broadcom BCM4319 SDIO"
+	  ---help---
+	    A library for Broadcom BCM4319 SDIO WLAN devices.
+
+	config BCM4319_FAC 
+      depends on WLAN_80211 && MMC 
+      select WIRELESS_EXT 
+      select IEEE80211 
+      select FW_LOADER 
+      bool "Broadcom BCM4319 SDIO (Factory Test Only)" 
+      ---help--- 
+        A library for Broadcom BCM4319 SDIO WLAN devices. 
+                
+	config RALINK_RT3070
+	  depends on WLAN_80211 && USB
+	  select WIRELESS_EXT
+	  select IEEE80211
+	  select FW_LOADER
+	  bool "Ralink RT3070 USB"
+	  ---help---
+	    A library for Ralink RT3070 USB WIFI devices.
+source "drivers/net/wireless/rtl8192c.rk28/Kconfig"
+source "drivers/net/wireless/rtl8188eu/Kconfig"
+	#source "drivers/net/wireless/bcm43X9/Kconfig"
+
+endchoice
+
+endmenu

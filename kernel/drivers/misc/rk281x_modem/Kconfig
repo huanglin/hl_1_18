@@ -1,0 +1,43 @@
+#
+# USB Serial device configuration
+#
+
+menuconfig RK281X_SUPPORT_MODEM
+	tristate "RK281X support Modem"
+	depends on RK2818_HOST11
+	---help---
+	  Say Y here if you have a support modem
+
+choice
+    depends on RK281X_SUPPORT_MODEM
+	prompt  "Select 3G Modem"
+
+  config MODEM_ROCKCHIP_DEMO
+  	bool "ROCKCHIP_GENERAL_MODEM_DEVICE"
+	
+#config MODEM_ZTE_MF210
+#	bool "ZTE_MF210"
+	
+#config MODEM_ZTE_AD3812
+#	bool "ZTE_AD3812"
+
+#config MODEM_THINKWILL_ME800
+#	bool "THINKWILL_ME800"
+
+#config MODEM_HUAWEI_EM660
+#	bool "HUAWEI_EM660"
+	
+#config MODEM_HUAWEI_EM770
+#	bool "HUAWEI_EM770"
+
+#config MODEM_HUAWEI_EM660C
+ #        bool "HUAWEI_EM660C"
+
+#config MODEM_ZTE_MU301	
+#	bool "ZTE_MU301"
+
+#config MODEM_TDM_330
+#	bool "TDM_330"
+
+endchoice
+
